@@ -1,9 +1,6 @@
 from functools import reduce
 
-
-def read_lines(filename):
-    with open(filename, 'r') as f:
-        return list(map(lambda x: x.strip(), f.readlines()))
+from advent_utils import read_lines
 
 
 def count_trees(lines, x, y, move_x, move_y):

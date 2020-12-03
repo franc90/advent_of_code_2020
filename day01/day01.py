@@ -1,13 +1,8 @@
-def readlines(filename):
-    with open(filename, 'r') as f:
-        return f.readlines()
+from advent_utils import read_lines
 
 
 def convert_to_ints(list_of_strigs):
-    numbers = []
-    for item in list_of_strigs:
-        numbers.append(int(item))
-    return numbers
+    return list(map(lambda s: int(s), list_of_strigs))
 
 
 def get_first_two(ints):
@@ -25,6 +20,6 @@ def get_first_three(ints):
                     return ints[x] * ints[y] * ints[z]
 
 
-values = convert_to_ints(readlines('input'))
+values = convert_to_ints(read_lines('input'))
 print(get_first_two(values))
 print(get_first_three(values))
