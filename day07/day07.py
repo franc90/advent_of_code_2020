@@ -13,9 +13,9 @@ def parse_to_graph(lines):
     g = nx.DiGraph()
     lines = filter(lambda l: "bags contain no other bags." not in l, lines)
     lines = map(lambda l: remove_meaningless_words(l), lines)
-    words_in_line = map(lambda l: l.split(), lines)
+    words_in_lines = map(lambda l: l.split(), lines)
 
-    for words in words_in_line:
+    for words in words_in_lines:
         from_node = create_node_name(words[0], words[1])
         words = words[2:]
 
@@ -38,7 +38,7 @@ def count_bags_inside(g, my_bag="shiny gold"):
     def count_required_bags_inside(g, my_bag):
         count = 1
         for child in g.successors(my_bag):
-            count = count + g[my_bag][child]["weight"] * count_required_bags_inside(g, child)
+            count += g[my_bag][child]["weight"] * count_required_bags_inside(g, child)
         return count
 
     return count_required_bags_inside(g, my_bag) - 1
