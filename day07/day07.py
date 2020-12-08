@@ -1,6 +1,6 @@
 import networkx as nx
 
-from advent_utils import read_lines
+from advent_utils import read_lines, assert_eq
 
 
 def parse_to_graph(lines):
@@ -47,10 +47,8 @@ def count_bags_inside(g, my_bag="shiny gold"):
 test_lines = read_lines('test')
 test_graph = parse_to_graph(test_lines)
 
-parent_colors_cnt_test = possible_holders_of_my_bag(test_graph)
-bags_in_test_bag = count_bags_inside(test_graph)
-assert 4 == len(parent_colors_cnt_test), f"4 != {len(parent_colors_cnt_test)}"
-assert 32 == bags_in_test_bag, f"32 != {bags_in_test_bag}"
+assert_eq(4, len(possible_holders_of_my_bag(test_graph)))
+assert_eq(32, count_bags_inside(test_graph))
 
 lines = read_lines('input')
 graph = parse_to_graph(lines)

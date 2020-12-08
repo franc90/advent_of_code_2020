@@ -1,4 +1,4 @@
-from advent_utils import read_lines
+from advent_utils import read_lines, assert_eq
 
 
 def binary_search(line, start, end, lower_side_marker):
@@ -35,8 +35,7 @@ tests = [
 ]
 
 for test in tests:
-    decoded = decode_lines([test[0]])[0]
-    assert test == decoded, f"{test} != {decoded}"
+    assert_eq(test, decode_lines([test[0]])[0])
 
 lines = read_lines('input')
 decoded = decode_lines(lines)
