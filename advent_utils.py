@@ -11,3 +11,7 @@ def read_with_group_separator(filename, separator):
 
 def flatten(a_list):
     return [item for sublist in a_list for item in sublist]
+
+
+def assert_eq(expected, actual):
+    assert expected == actual, f"{expected} != {actual}"
