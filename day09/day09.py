@@ -1,9 +1,5 @@
-from advent_utils import read_lines, assert_eq
+from advent_utils import read_list_of_ints, assert_eq
 import itertools
-
-
-def parse_input(lines):
-    return [int(line) for line in lines]
 
 
 def find_invalid_value(numbers, preamble_len):
@@ -29,12 +25,12 @@ def find_encryption_weakness(numbers, expected_sum):
     return None
 
 
-test_numbers = parse_input(read_lines('test'))
+test_numbers = read_list_of_ints('test')
 invalid_test_value = find_invalid_value(test_numbers, preamble_len=5)
 assert_eq(127, invalid_test_value)
 assert_eq(62, find_encryption_weakness(test_numbers, invalid_test_value))
 
-numbers = parse_input(read_lines('input'))
+numbers = read_list_of_ints('input')
 invalid_value = find_invalid_value(numbers, preamble_len=25)
 print(f"invalid number: {invalid_value}")
 print(f"encryption weakness: {find_encryption_weakness(numbers, invalid_value)}")

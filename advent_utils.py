@@ -9,6 +9,10 @@ def read_with_group_separator(filename, separator):
         return list(map(lambda g: g.split(), groups))
 
 
+def read_list_of_ints(filename):
+    return [int(line) for line in read_lines(filename)]
+
+
 def flatten(a_list):
     return [item for sublist in a_list for item in sublist]
 
