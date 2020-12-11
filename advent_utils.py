@@ -1,3 +1,7 @@
+def read_matrix(filename):
+    return list(map(lambda l: list(l), read_lines(filename)))
+
+
 def read_lines(filename):
     with open(filename, 'r') as f:
         return list(map(lambda x: x.strip(), f.readlines()))
